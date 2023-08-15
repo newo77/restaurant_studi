@@ -1,0 +1,70 @@
+.container_form_reservation {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    font-family: math;
+    padding-top: 117px;
+    color: darkblue;
+  }
+
+  .form_reservation {
+    margin: auto;
+    border: 1px solid black;
+    padding: 47px;
+    border-radius: 10px;
+    margin-bottom: 17.6%;
+
+    .container_input_form {
+      margin: auto;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        font-family: math;
+        color: darkblue;
+      }
+      input,
+      select {
+        font-family: math;
+        width: 100%;
+      }
+    }
+
+    .mt15px {
+      margin-top: 15px;
+    }
+
+    .container_btn_multiple_tasks {
+      margin-top: 20px;
+      button {
+        border: none;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        border: 1px solid;
+        text-decoration: none;
+        padding: 5px;
+        background-color: aliceblue;
+        color: darkblue;
+        font-family: math;
+        background-color: white;
+
+        a {
+          color: darkblue;
+          
+          &:hover {
+            color: white;
+          }
+        }
+
+        &:hover {
+          background-color: darkblue;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

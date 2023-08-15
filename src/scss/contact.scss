@@ -1,0 +1,58 @@
+.mt15px {
+  margin-top: 15px;
+}
+
+#container_form_contact {
+  display: flex;
+  flex-direction: column;
+  background-color: slategray;
+
+  h2 {
+    text-align: center;
+    font-family: math;
+    padding-top: 117px;
+    color: white;
+  }
+
+  .form_contact {
+    background-color: white;
+    margin: auto;
+    border: 1px solid black;
+    padding: 47px;
+    border-radius: 10px;
+    margin-bottom: 12.8%;
+
+    .container_input_form_contact {
+      label {
+        display: flex;
+        font-family: math;
+        color: darkblue;
+        flex-direction: column;
+
+        input {
+          font-family: math;
+        }
+      }
+    }
+    .container_btn_submit_contact {
+      button {
+        border: none;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        border: 1px solid;
+        padding: 5px;
+        background-color: aliceblue;
+        color: darkblue;
+        font-family: math;
+        background-color: white;
+
+        &:hover {
+          background-color: darkblue;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

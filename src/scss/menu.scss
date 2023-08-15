@@ -1,0 +1,47 @@
+.menu_container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 70px;
+  margin-top: 50px;
+  .menu_title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .btn_swap_menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    button {
+      background-color: #ddd;
+      border: none;
+      padding: 10px 20px;
+      margin-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.active {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+  }
+
+  .section_container_food {
+    border: 1px solid darkblue;
+    margin-bottom: 70px;
+  }
+
+  .options_food {
+    list-style: none;
+  }
+}

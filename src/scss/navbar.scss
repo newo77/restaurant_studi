@@ -1,0 +1,96 @@
+// Nativ css
+
+body {
+  margin:0;
+  padding-top: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.Navbar {
+  background-color: #333;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9;
+
+  @media (max-width:769px) {
+    height: 8%;
+  }
+}
+
+.BurgerMenu {
+  display: none;
+  cursor: pointer;
+  padding: 16px;
+  margin-right: 16px;
+
+  .BurgerMenuLine {
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #fff;
+  }
+}
+
+ul.NavbarLinks {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+
+  li {
+    a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: #111;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .BurgerMenu {
+    display: block;
+  }
+
+  ul.NavbarLinks {
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 64px);
+    background-color: #333;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+
+    &.isOpen {
+      transform: translateX(0);
+    }
+
+    li {
+      width: 100%;
+
+      a {
+        padding: 8px 0;
+      }
+    }
+  }
+}
