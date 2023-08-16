@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+### Projet ecf restaurant Studi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This projet was created for the exam january 2024
 
-## Available Scripts
+## Dependencies
 
-In the project directory, you can run:
+Run npm install for download all dependencies
 
-### `npm start`
+## Environments
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+install node js version 18 install npm version 9.8.1
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Access to database
 
-### `npm test`
+create a user with all permission, the default password is root
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Feed database
 
-### `npm run build`
+In the project, you have a folder who contain the file 'restaurantStudi.Sql',
+use it for feed you're database and get all the row necessary
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Runs the app in the development mode. Open http://localhost:3000 to view it in
+your browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The page will reload when you make changes. You may also see any lint errors in
+the console.
 
-### `npm run eject`
+⚠️ don't forget to launch the local server : node src/server.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# npm run build
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run this command for create a compile version of your app to deploy
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Comment utiliser l'app
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+créer un compte en cliquant sur 'connexion', si c'est la 1ère fois que vous vous
+connectez, alors cliquez sur "s'inscrire", vous devrez rentré différent champ et
+par la suite choisir un rôle, le rôle pouvant se choisir uniquement tant que
+l'administrateur n'est pas définit, après s'être inscrit il ne vous reste plus
+qu'à vous connectez.
 
-## Learn More
+Une fois connectez, l'app vous redirige vers la page d'accueil , ici vous y
+trouverez les images que l'administrateur aura saisit.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# role Admin
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Vous pouvez en tant qu'admin :
 
-### Code Splitting
+- accédez à l'ajout/modification/suppression des images sur la page d'accueil
+- Modifier les horaires d'ouvertures et de fermetures du restaurant
+- Accédez au dashboard de l'admin pour set la valeur du max de convives en base
+  de donnée en allant sur "réservations"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# role User ( compte client )
 
-### Analyzing the Bundle Size
+En tant qu'user, quand vous vous inscrivez , vous avez des champs a remplir qui
+sont convives par défaut et allergies qui seront Set automatiquement dans
+l'onglet réservations quand vous voudrez réservé, evidemment les fonctionnalités
+restent minimes en termes de temp accordés mais j'aurais bien ajoutés un système
+de fidélité, un sytème de paiement..
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# role Visiteur
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Sans inscription, on peux quand même navigué sur le site, nous pouvons voir les
+Images saisit par l'admin , réserver une table , voir le menu proposé sur
+l'onglet "menu", faire des réservations, contactez l'équipe du restaurant(il est
+en preventdefault actuellement car je veux faire un truc sophistiqué), et la
+connexion pour s'inscrire ou se désinscrire
