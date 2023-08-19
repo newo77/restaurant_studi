@@ -1,113 +1,115 @@
 .banner {
-  width: 100vw;
-  height: 100vh;
-  background: url("../../public/chambery.png");
+	width: 100vw;
+	height: 100vh;
+	background: url('../../public/chambery.png');
 
-  h1 {
-    position: absolute;
-    width: 100%;
-    margin: 0;
-    font-size: 130px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    @media (max-width: 1230px) {
-      font-size: xx-large;
-    }
-  }
+	h1 {
+		position: absolute;
+		width: 100%;
+		margin: 0;
+		font-size: 130px;
+		height: 100%;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		@media (max-width: 1230px) {
+			font-size: xx-large;
+		}
+	}
 }
 
 .add_image_form_container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 20px;
-  align-items: center;
-  gap: 10px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 20px;
+	align-items: center;
+	gap: 10px;
 }
 
 .grid_container_flex {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 
-  .grid_container {
-    list-style: none;
-    padding: 0;
-    grid-gap: 25px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+	.grid_container {
+		list-style: none;
+		padding: 0;
+		grid-gap: 25px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
 
-    @media (max-width: 1580px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+		@media (max-width: 1580px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
 
-    @media (max-width: 1200px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
+		@media (max-width: 1200px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 
-    @media (max-width: 800px) {
-      display: inline-flex;
-      overflow-x: scroll;
-      margin: 25px;
-    }
+		@media (max-width: 800px) {
+			display: inline-flex;
+			overflow-x: scroll;
+			margin: 25px;
+		}
 
-    .image_restaurant {
-      position: relative;
+		.image_restaurant {
+			position: relative;
 
-      img {
-        border-radius: 50px;
-      }
+			img {
+				border-radius: 50px;
+			}
 
-      .container_image_text_restaurant {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-      }
+			.container_image_text_restaurant {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
 
-      .single_image_text_restaurant {
-        display: none;
-      }
+			.single_image_text_restaurant {
+				display: none;
+			}
 
-      button {
-        bottom: 0;
-        position: absolute;
-        width: 100%;
-        height: 15%;
-        border: none;
-        background-color: lightgreen;
-        color: white;
-      }
-    }
-  }
+			button {
+				bottom: 0;
+				position: absolute;
+				width: 100%;
+				height: 15%;
+				border: none;
+				background-color: lightgreen;
+				color: white;
+			}
+		}
+	}
 }
 
 .image_restaurant:hover > .container_image_text_restaurant {
-  backdrop-filter: blur(10px);
-  transition-duration: 0.8s;
-  .single_image_text_restaurant {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    color: white;
-    height: 100%;
-  }
+	backdrop-filter: blur(10px);
+	transition-duration: 0.8s;
+	.single_image_text_restaurant {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		color: white;
+		height: 100%;
+	}
 }
 
 .reservation_btn {
-  border: none;
-  margin-top: 30px;
-  background: none;
-  width: 100%;
-  margin-bottom: 45px;
+	border: none;
+	margin-top: 30px;
+	background: none;
+	width: 100%;
+	margin-bottom: 45px;
 
-  a {
-    text-decoration: none;
-    border: 1px solid;
-    padding: 10px;
-    border-radius: 19px;
-  }
+	a {
+		text-decoration: none;
+		border: 1px solid;
+		padding: 10px;
+		border-radius: 19px;
+	}
 }

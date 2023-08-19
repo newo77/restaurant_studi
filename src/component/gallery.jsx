@@ -66,7 +66,7 @@ function Gallery() {
 			});
 		}
 
-		// Ce code autorise que les jpeg (les requetes a 10000 environ)
+		// Ce code autorise que les jpeg (les requetes a 10000Ko environ)
 		const base64Image = await fileToBase64(file);
 		console.log(base64Image.length);
 		const data = {
