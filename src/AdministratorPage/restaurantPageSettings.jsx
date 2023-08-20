@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function RestaurantSettingsForm() {
 	const isAdmin = localStorage.getItem('role') === 'admin';
 	const [capacity, setCapacity] = useState('');
+
+	useEffect(() => {
+		axios
+			.get('http://localhost:3001/settings')
+			.then((response) => {
+				setCapacity(response.data.max_convives);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
@@ -18,6 +29,10 @@ function RestaurantSettingsForm() {
 			.catch((error) => {
 				console.error(error);
 			});
+		setCapacity(capacity);
+		alert(
+			`Maintenant, le restaurant peux accueillir ${capacity} convives. Félicitation!`
+		);
 	};
 
 	return (

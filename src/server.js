@@ -216,9 +216,6 @@ app.post('/images', (req, res) => {
 	const title = req.body.title;
 	const image = req.body.image;
 
-	console.log('title:', title);
-	console.log('image:', image);
-
 	const sql = 'INSERT INTO images (title, image) VALUES (?, ?)';
 
 	connection.query(sql, [title, image], (err, result) => {
@@ -472,12 +469,31 @@ app.post('/reservation-register', (req, res) => {
 // Définir une route pour enregistrer les paramètres de restaurant dans la base de données
 app.post('/settings', (req, res) => {
 	const { capacity } = req.body;
-	const sql = `UPDATE restaurant_settings_adm SET max_convives = ${capacity}`;
+	const sqlSelect =
+		'SELECT COUNT(*) as count FROM restaurant_settings_adm WHERE id = 0';
 
-	connection.query(sql, (error, result) => {
-		if (error) throw error;
-		console.log('Paramètres enregistrés dans la base de données.');
-		res.send('Paramètres enregistrés dans la base de données.');
+	connection.query(sqlSelect, (selectError, selectResult) => {
+		if (selectError) throw selectError;
+
+		if (selectResult[0].count === 0) {
+			// Aucune ligne n'existe avec l'ID 0, donc insérer une nouvelle ligne
+			const sqlInsert = `INSERT INTO restaurant_settings_adm (id, max_convives) VALUES (0, ${capacity})`;
+
+			connection.query(sqlInsert, (insertError, insertResult) => {
+				if (insertError) throw insertError;
+				console.log('Nouvelle ligne insérée dans la base de données.');
+				res.send('Nouvelle ligne insérée dans la base de données.');
+			});
+		} else {
+			// Une ligne existe avec l'ID 0, donc mettre à jour
+			const sqlUpdate = `UPDATE restaurant_settings_adm SET max_convives = ${capacity} WHERE id = 0`;
+
+			connection.query(sqlUpdate, (updateError, updateResult) => {
+				if (updateError) throw updateError;
+				console.log('Paramètres mis à jour dans la base de données .');
+				res.send('Paramètres mis à jour dans la base de données.');
+			});
+		}
 	});
 });
 
