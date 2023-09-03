@@ -17,7 +17,6 @@ const Connexion = (props) => {
     axios
       .post("http://localhost:3001/users/connexion", { email, mot_de_passe })
       .then((response) => {
-        // Stockage de la variable d'authentification et du nom d'utilisateur dans localStorage
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("email", response.data.email);
         localStorage.setItem("userId", response.data.id);
