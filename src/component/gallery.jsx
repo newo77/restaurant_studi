@@ -66,8 +66,6 @@ function Gallery() {
 			});
 		}
 
-		
-
 		const base64Image = await fileToBase64(file);
 		console.log(base64Image.length);
 		const data = {
@@ -92,7 +90,7 @@ function Gallery() {
 			{isAdmin && (
 				<form className="add_image_form_container" onSubmit={handleFormSubmit}>
 					<div className="FormGroup">
-						<label htmlFor="title">Title :</label>
+						<label htmlFor="title">Titre :</label>
 						<input
 							type="text"
 							name="title"
@@ -111,7 +109,7 @@ function Gallery() {
 						/>
 					</div>
 					<p>Assurez-vous que votre image fasse moin de 11000 Ko</p>
-					<button type="submit">
+					<button className='buttonAdd' type="submit">
 						{selectedImage ? 'Modifier' : 'Ajouter'}
 					</button>
 				</form>

@@ -55,9 +55,7 @@ function RestaurantSettingsForm() {
 							</div>
 							<div className="container_btn_multiple_tasks">
 								<button type="submit">Enregistrer</button>
-								<button className="mt15px" type="reset">
-									Annuler
-								</button>
+								
 							</div>
 						</div>
 					</div>
