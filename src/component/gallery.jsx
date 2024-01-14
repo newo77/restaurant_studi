@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { getApiUrl } from '../configAPI';
 
 function Gallery() {
 	const [images, setImages] = useState([]);
@@ -13,7 +14,7 @@ function Gallery() {
 	}, []);
 
 	const fetchImages = async () => {
-		const response = await axios.get('http://localhost:3001/images');
+		const response = await axios.get(`${getApiUrl}/images`);
 		setImages(response.data);
 	};
 
@@ -31,7 +32,7 @@ function Gallery() {
 	};
 
 	const handleDeleteClick = async (image) => {
-		await axios.delete(`http://localhost:3001/images/${image.id}`);
+		await axios.delete(`${getApiUrl}/images/${image.id}`);
 		fetchImages();
 	};
 
@@ -74,9 +75,9 @@ function Gallery() {
 		};
 
 		if (selectedImage) {
-			await axios.put(`http://localhost:3001/images/${selectedImage.id}`, data);
+			await axios.put(`${getApiUrl}${selectedImage.id}`, data);
 		} else {
-			await axios.post('http://localhost:3001/images', data);
+			await axios.post(`${getApiUrl}/images`, data);
 		}
 
 		setSelectedImage(null);
@@ -109,7 +110,7 @@ function Gallery() {
 						/>
 					</div>
 					<p>Assurez-vous que votre image fasse moin de 11000 Ko</p>
-					<button className='buttonAdd' type="submit">
+					<button className="buttonAdd" type="submit">
 						{selectedImage ? 'Modifier' : 'Ajouter'}
 					</button>
 				</form>

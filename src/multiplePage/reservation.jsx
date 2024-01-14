@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { getApiUrl } from '../configAPI';
 
 //TODO permettre que le restaurant puisser fermer les réservations
 
@@ -18,9 +19,7 @@ const ReservationForm = () => {
 
 	const fetchTimeSlots = async () => {
 		try {
-			const response = await axios.get(
-				`http://localhost:3001/open_hours/${reservation_date}`
-			);
+			const response = await axios.get(`${getApiUrl}${reservation_date}`);
 			setTimeSlots(response.data);
 			setIsAvailable(true);
 		} catch (error) {
@@ -35,7 +34,7 @@ const ReservationForm = () => {
 		try {
 			const userId = localStorage.getItem('userId');
 
-			const response = await axios.get(`http://localhost:3001/users/${userId}`);
+			const response = await axios.get(`${getApiUrl}${userId}`);
 			const { convives, allergies } = response.data;
 			setNumGuests(convives);
 			setAllergies(allergies);
@@ -46,7 +45,7 @@ const ReservationForm = () => {
 
 	const fetchMaxGuests = async () => {
 		try {
-			const response = await axios.get('http://localhost:3001/settings');
+			const response = await axios.get(`${getApiUrl}settings`);
 			setMaxGuests(response.data.max_convives);
 		} catch (error) {
 			console.error(
@@ -58,7 +57,7 @@ const ReservationForm = () => {
 
 	const fetchReservations = async () => {
 		try {
-			const response = await axios.get('http://localhost:3001/reservations');
+			const response = await axios.get(`${getApiUrl}reservations`);
 			const additionnalGuests = response.data.reduce(
 				(acc, reservation) => acc + reservation.num_guests,
 				0
@@ -105,7 +104,7 @@ const ReservationForm = () => {
 				setIsSubmitting(false);
 				return;
 			}
-			await axios.post('http://localhost:3001/reservation-register', {
+			await axios.post(`${getApiUrl}reservation-register`, {
 				num_guests,
 				reservation_date,
 				reservation_time,

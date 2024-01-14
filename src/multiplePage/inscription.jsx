@@ -13,7 +13,7 @@ function RegistrationForm() {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:3001/users/admin')
+			.get('/users/admin')
 			.then((response) => {
 				setIsAdminPresent(response.data[0].count > 0);
 				//renvoie un boolean si au moin un admin est présent en db
@@ -27,7 +27,7 @@ function RegistrationForm() {
 		event.preventDefault();
 
 		axios
-			.post('http://localhost:3001/users', {
+			.post('/users', {
 				email,
 				mot_de_passe: password,
 				convives,

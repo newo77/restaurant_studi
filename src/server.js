@@ -3,28 +3,37 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+const dotenv = require('dotenv');
 
+if (process.env.NODE_ENV === 'production') {
+	dotenv.config({ path: '.env.production' });
+  } else {
+	dotenv.config();
+  }
+  
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 // créer une connexion à la base de données MySQL
 const connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'user',
-	password: 'root',
-	database: 'restaurant',
-});
-
+	host: process.env.DB_HOST,
+	port: process.env.DB_PORT,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	database: process.env.DB_NAME,
+  });
+  
+  
 // vérifier la connexion à la base de données MySQL
-connection.connect((error) => {
-	if (error) {
+connection.connect((err) => {
+	if (err) {
 		console.error(
-			'Erreur lors de la connexion à la base de données MySQL :',
-			error
+			'Erreur lors de la connexion à la base de données MySQL:',
+			err
 		);
 	} else {
-		console.log('Connexion à la base de données restaurant réussie');
+		console.log('Connexion à la base de données réussie');
 	}
 });
 
